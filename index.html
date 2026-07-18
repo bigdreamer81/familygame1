@@ -59,7 +59,7 @@
 
   /* ---------- title ---------- */
   #screen-title { justify-content:center; text-align:center; gap:18px; }
-  .emoji-row { display:flex; justify-content:center; gap:2px; font-size:clamp(24px, 7.6vw, 34px); }
+  .emoji-row { display:flex; flex-wrap:wrap; justify-content:center; gap:2px; font-size:clamp(19px, 5.6vw, 26px); }
   .emoji-row span { animation:bob 1.6s ease-in-out infinite; display:inline-block; }
   .emoji-row span:nth-child(2n){ animation-delay:.2s } .emoji-row span:nth-child(3n){ animation-delay:.4s }
   .emoji-row span:nth-child(4n){ animation-delay:.6s } .emoji-row span:nth-child(5n){ animation-delay:.1s }
@@ -206,22 +206,22 @@
   /* ---------- race ---------- */
   #screen-race { padding-bottom:10px; }
   #raceHint { font-size:11px; font-weight:700; color:#ffd166; background:rgba(255,209,102,.15); padding:5px 9px; border-radius:9px; }
-  #raceTracks { position:relative; display:flex; flex-direction:column; gap:5px; }
-  .track-row { display:flex; align-items:center; gap:8px; padding:2px 0; border-radius:12px; transition:background .2s; }
+  #raceTracks { position:relative; display:flex; flex-direction:column; gap:4px; }
+  .track-row { display:flex; align-items:center; gap:8px; padding:1px 0; border-radius:12px; transition:background .2s; }
   .track-row:active { background:rgba(255,255,255,.06); }
   .track-row.leader .r-name { color:#ffd166; }
   .track-row.leader .r-name::after { content:" 👑"; }
-  .r-label { width:92px; flex:none; display:flex; align-items:center; gap:5px; }
-  .r-emoji { font-size:20px; }
+  .r-label { width:88px; flex:none; display:flex; align-items:center; gap:5px; }
+  .r-emoji { font-size:18px; }
   .r-name { font-size:12px; font-weight:800; flex:1; white-space:nowrap; overflow:hidden; }
   .r-medal { font-size:13px; font-weight:900; }
   .r-track {
-    position:relative; flex:1; height:34px; border-radius:10px;
+    position:relative; flex:1; height:29px; border-radius:10px;
     background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.07); overflow:visible;
   }
   .r-flag { position:absolute; right:4px; top:50%; translate:0 -50%; font-size:15px; opacity:.75; }
   .r-runner {
-    position:absolute; left:0%; top:50%; translate:-6px -50%; font-size:24px; line-height:1; z-index:2;
+    position:absolute; left:0%; top:50%; translate:-6px -50%; font-size:21px; line-height:1; z-index:2;
     transition:left .18s linear; animation:runBob .42s ease-in-out infinite alternate;
     filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));
   }
@@ -231,7 +231,7 @@
   .track-row.finished .r-runner { animation:none; rotate:0deg; }
   .cheer-float { position:absolute; z-index:5; font-size:15px; pointer-events:none; translate:-50% 0; animation:floatUp .7s forwards; }
 
-  #raceFeed { flex:1; overflow:hidden; margin-top:10px; display:flex; flex-direction:column; gap:6px; min-height:90px; }
+  #raceFeed { flex:1; overflow:hidden; margin-top:8px; display:flex; flex-direction:column; gap:5px; min-height:76px; }
   .feed-line {
     background:rgba(255,255,255,.06); border-left:3px solid rgba(255,255,255,.2);
     border-radius:10px; padding:8px 11px; font-size:12.5px; font-weight:600; line-height:1.4; color:rgba(255,255,255,.85);
@@ -280,9 +280,9 @@
 
   <!-- TITLE -->
   <section id="screen-title" class="screen active">
-    <div class="emoji-row"><span>🕴️</span><span>🎀</span><span>🤠</span><span>👻</span><span>🛻</span><span>✈️</span><span>💉</span><span>🤖</span></div>
+    <div class="emoji-row"><span>🕴️</span><span>🎀</span><span>🤠</span><span>💄</span><span>👻</span><span>🛻</span><span>✈️</span><span>💉</span><span>🦋</span><span>🌿</span><span>🤖</span></div>
     <h1 class="logo">FAMILY<br>DASH</h1>
-    <p class="tagline-main">One family. Eight legends. Sixty seconds of chaos.</p>
+    <p class="tagline-main">One family. Eleven legends. Sixty seconds of chaos.</p>
     <div class="mode-cards">
       <button class="mode-card" id="btnModeDash">
         <span class="mc-emoji">🎮</span>
@@ -438,6 +438,25 @@ const CHARACTERS = [
     },
   },
   {
+    id:'nikki', name:'Nikki', emoji:'💄', color:'#e06bd6',
+    tagline:'Gluten-free. Glam always.',
+    loves:[['💄','beauty haul'],['✨','glow serum'],['💇‍♀️','fresh blowout']],
+    hates:[['🍞','sneaky sourdough'],['🥨','pretzel trap'],['🥖','baguette ambush']],
+    power:{ name:'Makeover Magic', desc:'Turns all hates into loves', type:'convert', dur:0 },
+    lines:{
+      streak:[ "Smart, friendly, AND undefeated. 💅", "That streak is glowing. New serum?", "Zero gluten, zero mistakes." ],
+      hit:[ "GLUTEN?! Who authorized this bread?!", "A pretzel trap! Her allergist has been notified.", "That baguette came out of NOWHERE." ],
+      power:[ "MAKEOVER MAGIC! Everything ugly just got gorgeous. ✨" ],
+      results:[ "Nikki's score is flawless. Like her hair.", "She did this between school pickup and a blowout." ],
+    },
+    titles:[ 'Beauty School Rookie', 'Blowout Apprentice', 'Glam Squad Captain', 'Gluten-Free Goddess' ],
+    award:'Best Hair at the Finish Line',
+    race:{
+      good:[ "💄 Nikki hit her stride without smudging a thing. Iconic.", "✨ Glow-up complete. Nikki is literally shining out front.", "🥖 She smelled gluten behind her. FASTEST split of the race." ],
+      bad:[ "🍞 Someone opened a bakery near the track. Nikki took a safety detour.", "💇‍♀️ The wind ruined her blowout. She needs a second.", "🧸 The kids called mid-race. Mom duty never stops." ],
+    },
+  },
+  {
     id:'sajani', name:'Sajani', emoji:'👻', color:'#a06bff',
     tagline:'Office by day. Horror by night.',
     loves:[['🥟','dumplings'],['📺','K-drama box set'],['👻','horror film']],
@@ -514,7 +533,45 @@ const CHARACTERS = [
     },
   },
   {
-    id:'kish', name:'Kish', emoji:'🤖', color:'#4ee08a',
+    id:'yesha', name:'Yesha', emoji:'🦋', color:'#f5c531',
+    tagline:'Free spirit. Fresh bread.',
+    loves:[['🥪','footlong masterpiece'],['🎨','wild new idea'],['🦋','free-spirit moment']],
+    hates:[['📋','franchise audit'],['⏰','6am bread delivery'],['📏','following the rules']],
+    power:{ name:'Fresh Bake', desc:'Instantly bakes a rush of loves', type:'feast', dur:0 },
+    lines:{
+      streak:[ "She's freestyling and it's WORKING. 🦋", "Creativity unleashed. Streak untouchable.", "This isn't a run, it's a performance piece." ],
+      hit:[ "A franchise audit?! The free spirit has been CAGED.", "6am bread delivery flashback. Shudder.", "Rules? In HER run??" ],
+      power:[ "FRESH BAKE! Sandwiches for everybody!! 🥪" ],
+      results:[ "Yesha says scores are a construct. But hers IS beautiful.", "She's painting this number on the shop wall." ],
+    },
+    titles:[ 'Sandwich Trainee', 'Artist of the Footlong', 'Free Spirit Supreme', 'CEO of Fresh Ideas' ],
+    award:'Most Creative Route (It Was Not Faster)',
+    race:{
+      good:[ "🦋 Yesha caught a creative breeze. She's FLOATING past everyone.", "🥪 A customer yelled 'best sandwich ever!' Yesha grew wings.", "🎨 Yesha reimagined running itself. Avant-garde AND fast." ],
+      bad:[ "🎨 Yesha stopped to sketch the sunset. Priorities.", "⏰ The 6am bread delivery called. She's letting it go to voicemail… slowly.", "📏 Someone showed Yesha the official race rules. She's protesting them." ],
+    },
+  },
+  {
+    id:'abhi', name:'Abhi', emoji:'🌿', color:'#57d977',
+    tagline:'Chill owner. Very chill.',
+    loves:[['🥪','meatball marinara'],['🌿','premium herb'],['🍪','munchie stash']],
+    hates:[['🚨','surprise inspection'],['👔','corporate drop-in'],['🧾','inventory count']],
+    power:{ name:'Munchies', desc:'Eat EVERYTHING for 5s', type:'munch', dur:5 },
+    lines:{
+      streak:[ "Focused. Mellow. Unstoppable. 🌿", "He's in the zone. The chill zone.", "Chill is a skill, apparently." ],
+      hit:[ "A surprise inspection?! Not cool, man.", "Corporate dropped in. The vibe is GONE.", "Inventory count?? He vibes-estimates it." ],
+      power:[ "MUNCHIES ACTIVATED. Suddenly everything looks delicious. 🌿" ],
+      results:[ "Abhi is very proud. He'll remember this score in a minute.", "Wait — the game was TODAY?" ],
+    },
+    titles:[ 'Part-Time Chiller', 'Sandwich Sensei', 'Highly Motivated', 'Zen Master of the Footlong' ],
+    award:'Most Relaxed Under Absolutely No Pressure',
+    race:{
+      good:[ "🌿 Abhi found his zen pace. Effortless glide engaged.", "🥪 Yesha promised a victory sub. Abhi woke UP.", "😌 Abhi is so relaxed he's basically frictionless." ],
+      bad:[ "🌿 Abhi stopped to appreciate a really nice cloud.", "🥪 Abhi forgot he was racing. He remembered. Eventually.", "🍪 The munchies hit at mile two. Full snack stop." ],
+    },
+  },
+  {
+    id:'kish', name:'Kish', emoji:'🤖', color:'#9fb4c8',
     tagline:'Grey hair. Dad jokes. Too much AI.',
     loves:[['🤖','AI gadget'],['🤝','business deal'],['😂','dad-joke book']],
     hates:[['🔲','CAPTCHA'],['⚠️','usage limit reached'],['🪫','low battery']],
@@ -540,6 +597,10 @@ const GLOBAL_EVENTS = [
   { type:'pair', ids:['patrice','sagar'], good:false, text:"🍖 Patrice offered Sagar brisket mid-race. Both took a snack break." },
   { type:'pair', ids:['rahil','shivam'], good:false, text:"🥂 Rahil and Shivam found a pop-up tasting menu ON the track. Detour." },
   { type:'pair', ids:['aanjali','sajani'], good:true, text:"📱 Aanjali and Sajani hit mom-speed. Nobody outruns a mom on a mission." },
+  { type:'pair', ids:['nikki','sagar'], good:true, text:"💑 Sagar matched Nikki's pace. Date-night cardio, activated." },
+  { type:'pair', ids:['yesha','abhi'], good:true, text:"🥪 Yesha and Abhi opened a pop-up Subway ON the track. Somehow gaining speed AND customers." },
+  { type:'pair', ids:['nikki','abhi'], good:false, text:"🍪 Abhi offered Nikki a cookie. It had gluten. Negotiations have halted the race." },
+  { type:'allbut', id:'abhi', good:false, text:"🍪 Abhi shared his snack stash. Everyone stopped to eat. Abhi kept cruising." },
   { type:'allbut', id:'kish', good:false, text:"😂 Kish told a dad joke. The entire family groaned to a stop." },
   { type:'all', good:true, text:"👻 Sajani screamed 'IT'S BEHIND YOU!' Everyone sped up. Nobody looked back." },
 ];
@@ -698,9 +759,9 @@ function setLane(l){
   playerEl.style.left = LANE_X[D.lane] + '%';
 }
 
-function spawnItem(prog, now){
+function spawnItem(prog, now, forceLove = false, yStart = -60){
   const hateOk = now > D.hateBlockUntil;
-  const isHate = hateOk && Math.random() < 0.36;
+  const isHate = !forceLove && hateOk && Math.random() < 0.36;
   const [emoji] = pick(isHate ? D.char.hates : D.char.loves);
   const lane = (Math.random()*3)|0;
   const el = document.createElement('div');
@@ -708,7 +769,7 @@ function spawnItem(prog, now){
   el.textContent = emoji;
   el.style.left = LANE_X[lane] + '%';
   gameArea.appendChild(el);
-  D.items.push({ el, hate:isHate, x:LANE_X[lane], y:-60, v:0.9 + Math.random()*0.25, resolved:false, deadAt:0 });
+  D.items.push({ el, hate:isHate, x:LANE_X[lane], y:yStart, v:0.9 + Math.random()*0.25, resolved:false, deadAt:0 });
 }
 
 function dashTick(now){
@@ -788,7 +849,7 @@ function resolveItem(it, now, catchTop){
     if(D.powerType === 'slowmo') pts += 5;
     D.score += pts;
     D.streak++;
-    D.meter = Math.min(POWER_NEED, D.meter + 1);
+    if(!D.powerType) D.meter = Math.min(POWER_NEED, D.meter + 1); // meter pauses while a power runs — no perma-chains
     AudioSys.catch(D.streak);
     floatText('+' + pts, it.x, catchTop);
     it.el.classList.add('caught');
@@ -797,7 +858,17 @@ function resolveItem(it, now, catchTop){
     if(D.meter >= POWER_NEED && !D.powerType) powerBtn.classList.add('ready');
   } else {
     const p = D.powerType;
-    if(p === 'shield' || p === 'invincible' || p === 'auto'){
+    if(p === 'munch'){
+      // Abhi eats everything — hates count as catches
+      const mult = 1 + Math.min(4, Math.floor(D.streak/5));
+      const pts = 10 * mult;
+      D.score += pts;
+      D.streak++;
+      AudioSys.catch(D.streak);
+      floatText('+' + pts, it.x, catchTop);
+      it.el.classList.add('caught');
+      it.deadAt = now + 260;
+    } else if(p === 'shield' || p === 'invincible' || p === 'auto'){
       it.el.classList.add('zapped');
       it.deadAt = now + 280;
       AudioSys.zap();
@@ -832,6 +903,20 @@ function activatePower(){
       if(it.hate && !it.resolved){ it.resolved = true; it.el.classList.add('zapped'); it.deadAt = now + 300; }
     }
     D.hateBlockUntil = now + 2500;
+  } else if(t === 'convert'){
+    // Nikki: every hate on screen gets a makeover into a love
+    const f = $('flash'); f.className = ''; void f.offsetWidth; f.className = 'white';
+    for(const it of D.items){
+      if(it.hate && !it.resolved){
+        it.hate = false;
+        it.el.classList.remove('hate');
+        it.el.textContent = pick(D.char.loves)[0];
+      }
+    }
+    D.hateBlockUntil = now + 2000;
+  } else if(t === 'feast'){
+    // Yesha: a fresh batch of loves rains down
+    for(let i = 0; i < 6; i++) spawnItem(1 - D.time/DASH_TIME, now, true, -60 - i*85);
   } else {
     D.powerType = t;
     D.powerUntil = now + D.char.power.dur * 1000;
